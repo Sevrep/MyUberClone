@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">MyUberClone</string>
+    <string name="please_enter_your_username">Please enter your username…</string>
+    <string name="please_enter_your_password">Please enter your password…</string>
+    <string name="driver">Driver</string>
+    <string name="sign_up">Sign up</string>
+    <string name="don_t_want_to_sign_up_or_login">Don\&#39;t want to sign up or login?</string>
+    <string name="are_you_a_driver_or_a_passenger">Are you a driver or a passenger?</string>
+    <string name="one_time_login">One time login</string>
+    <string name="title_activity_passenger">Passenger</string>
+    <string name="title_activity_view_locations_map">Map</string>
+
+    <!-- Change the following strings as required -->
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+    <string name="back4app_app_id">ZUyElaKZCvgWHMmfnw7l2nxG9y1Qqt1qYGI0a2PX</string>
+    <string name="back4app_client_key" tools:ignore="Typos">VJODJgS1Di3lXvHA8wNeI8kVFWtmNHCGgwPFO95n</string>
+    <string name="logout">Logout</string>
+    <string name="log_in">Log In</string>
+
+</resources>
