@@ -17,5 +17,7 @@
     <string name="back4app_client_key" tools:ignore="Typos">VJODJgS1Di3lXvHA8wNeI8kVFWtmNHCGgwPFO95n</string>
     <string name="logout">Logout</string>
     <string name="log_in">Log In</string>
+    <string name="request_a_car">Request a car</string>
+    <string name="cancel_your_car_request">Cancel your car request.</string>
 
 </resources>

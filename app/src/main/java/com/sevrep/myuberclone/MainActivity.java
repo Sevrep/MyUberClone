@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ParseInstallation.getCurrentInstallation().saveInBackground();
         if (ParseUser.getCurrentUser() != null) {
             transitionToPassengerActivity();
-            transitionToDriverRequestListActivity();
+//            transitionToDriverRequestListActivity();
         }
 
         state = State.SIGNUP;
@@ -51,37 +51,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnSignUpLogin = findViewById(R.id.btnSignUpLogin);
         btnSignUpLogin.setOnClickListener(this);
+
         btnOneTimeLogin = findViewById(R.id.btnOneTimeLogin);
         btnOneTimeLogin.setOnClickListener(this);
 
         edtUserName = findViewById(R.id.edtUserName);
         edtPassword = findViewById(R.id.edtPassword);
         edtDriverOrPassenger = findViewById(R.id.edtDriverOrPassenger);
-
     }
 
     @Override
     public void onClick(View view) {
-
         if (view == btnSignUpLogin) {
             signUpLogin();
         } else if (view == btnOneTimeLogin) {
             onTimeLogin();
         }
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         getMenuInflater().inflate(R.menu.menu_signup_activity, menu);
         return super.onCreateOptionsMenu(menu);
-
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         if (item.getItemId() == R.id.loginItem) {
             if (state == State.SIGNUP) {
                 state = State.LOGIN;
@@ -94,11 +89,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         return super.onOptionsItemSelected(item);
-
     }
 
     private void signUpLogin() {
-
         if (state == State.SIGNUP) {
             if (!rdbDriver.isChecked() && !rdbPassenger.isChecked()) {
                 Toast.makeText(MainActivity.this, "Are you a driver or a passenger?", Toast.LENGTH_SHORT).show();
@@ -131,17 +124,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             });
         }
-
     }
 
     private void onTimeLogin() {
-
         String driverOrPassenger = edtDriverOrPassenger.getText().toString().toLowerCase();
         if (driverOrPassenger.equals("driver") || driverOrPassenger.equals("passenger")) {
             if (ParseUser.getCurrentUser() == null) {
                 ParseAnonymousUtils.logIn((user, e) -> {
                     if (user != null && e == null) {
-
                         Toast.makeText(MainActivity.this, "We have an anonymous user", Toast.LENGTH_SHORT).show();
 
                         user.put("as", edtDriverOrPassenger.getText().toString());
@@ -155,29 +145,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             Toast.makeText(MainActivity.this, "Are you a driver or a passenger?", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     private void transitionToPassengerActivity() {
-
         if (ParseUser.getCurrentUser() != null) {
             if (Objects.requireNonNull(ParseUser.getCurrentUser().get("as")).equals("Passenger")) {
-                /*Intent intent = new Intent(MainActivity.this, PassengerActivity.class);
-                startActivity(intent);*/
+                Intent intent = new Intent(MainActivity.this, PassengerActivity.class);
+                startActivity(intent);
             }
         }
-
     }
 
     private void transitionToDriverRequestListActivity() {
-
         if (ParseUser.getCurrentUser() != null) {
             if (Objects.requireNonNull(ParseUser.getCurrentUser().get("as")).equals("Driver")) {
                 /*Intent intent = new Intent(this, DriverRequestListActivity.class);
                 startActivity(intent);*/
             }
         }
-
     }
 
 }
